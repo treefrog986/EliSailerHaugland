@@ -22,6 +22,6 @@ export async function getStaticPaths(){
 
 export async function getStaticProps({params}){
 return{
-    props:{res:articles[params.id]}
+    props:{res: articles[params.id]}
 }
 }
