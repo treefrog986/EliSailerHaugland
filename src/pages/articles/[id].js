@@ -1,6 +1,6 @@
 import { useRouter } from "next/router"
 import { Button } from "@mui/material"
-import { articles } from "./articles"
+import Articles from "./articles.json"
 import Styles from "../../styles/Styles.module.css"
 export default function Article({res}){
     const router = useRouter()
@@ -15,13 +15,12 @@ export default function Article({res}){
 
 export async function getStaticPaths(){
     return {
-        paths:[...Object.keys(articles).map(k=>({params:{id:`${k}`}}))],
+        paths:[...Object.keys(Articles).map(k=>({params:{id:`${k}`}}))],
         fallback:false}
-    
 }
 
 export async function getStaticProps({params}){
 return{
-    props:{res: articles[params.id]}
+    props:{res: Articles[params.id]}
 }
 }
