@@ -6,7 +6,7 @@ export default function Articles(){
     const route = useRouter()
     return (<>
     {Object.keys(articles).map(k=>
-    <Button onClick={()=> route.push(`/articles/${k}`)}>{articles[k].title}</Button>)}
+    <Button key = {k} onClick={()=> route.push(`/articles/${k}`)}>{articles[k].title}</Button>)}
 
     </>)
 }
