@@ -1,11 +1,32 @@
-import { Button } from "@mui/material";
+import { Button, ButtonBase, Grid, Item , Card, CardActionArea} from "@mui/material";
+import Link from "next/link";
 import { useRouter } from "next/router";
 
 
 export default function Articles({ids}){
     const route = useRouter()
+
     return (<>
-    {ids?.map(k=><Button key = {k.id} onClick={()=> route.push(`/articles/${k.id}`)}>{k.name}</Button>)}
+    <p>Blogd</p>
+    <Grid container>
+        {ids.map(k=>
+  //      <Button>
+            <Grid item xs={4}>
+                <Card sx={{width:"90%", marginBottom:2}} >
+                    <CardActionArea onClick={()=>route.push(`/articles/${k.id}`)}>
+                   <h1>{k.name}</h1>
+                   </CardActionArea>
+                </Card>
+                </Grid>
+           // </Button>
+            )}
+            </Grid>
+    </>
+    )
+    return (<>
+    {ids?.map(k=>
+    
+    <Button key = {k.id} onClick={()=> route.push(`/articles/${k.id}`)}>{k.name}</Button>)}
     
     </>)
 }
