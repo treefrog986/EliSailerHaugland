@@ -13,7 +13,7 @@ export default function Article({res}){
 }
 
 export async function getStaticPaths(){
-   return []
+   return { paths: [], fallback:false}
     const res = await fetch(process.env.URL+"/api/blogs",{
         method:"GET"
     })
