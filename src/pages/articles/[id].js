@@ -12,7 +12,8 @@ export default function Article({res}){
     </div>)
 }
 
-/*export async function getStaticPaths(){
+export async function getStaticPaths(){
+   return []
     const res = await fetch(process.env.URL+"/api/blogs",{
         method:"GET"
     })
@@ -23,6 +24,7 @@ export default function Article({res}){
 }
 
 export async function getStaticProps({params}){
+    return []
     const res = await fetch(process.env.URL+`/api/blogs/${params.id}`,{
         method:"GET"
     })
@@ -30,4 +32,4 @@ export async function getStaticProps({params}){
 return{
     props:{res: data.rows[0]}
 }
-}*/
+}
