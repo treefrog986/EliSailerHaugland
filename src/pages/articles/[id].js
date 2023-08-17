@@ -24,7 +24,7 @@ export async function getStaticPaths(){
 }
 
 export async function getStaticProps({params}){
-    return []
+    return {props:{}}
     const res = await fetch(process.env.URL+`/api/blogs/${params.id}`,{
         method:"GET"
     })
