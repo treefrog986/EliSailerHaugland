@@ -2,6 +2,7 @@ var nodemailer = require("nodemailer")
 
 export default async function  handler(req, res) {
     const {email, name, message}= req.body
+    try{
     var transporter = nodemailer.createTransport({
       service:"Gmail",
       auth:{
@@ -24,5 +25,9 @@ export default async function  handler(req, res) {
 
     transporter.sendMail(mailOptions)
     return res.status(200).json({status:"Success"})
+  }
+  catch(error){
+    return req.status(500).json({error})
+  }
   }
   
