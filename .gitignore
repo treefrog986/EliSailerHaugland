@@ -29,7 +29,9 @@ yarn-error.log*
 
 # vercel
 .vercel
-create.js
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+src/pages/api/create.js
