@@ -11,7 +11,7 @@ export default function Articles({ids}){
 }
 
 export async function getStaticProps(){
-    return []
+    return{props:{id:[]}}
     const res = await fetch(process.env.URL+"/api/blogs",{
         method:"GET"
     })
