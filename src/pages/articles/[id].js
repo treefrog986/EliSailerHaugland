@@ -13,7 +13,6 @@ export default function Article({res}){
 }
 
 export async function getStaticPaths(){
-   return { paths: [], fallback:false}
     const res = await fetch(process.env.URL+"/api/blogs",{
         method:"GET"
     })
@@ -24,7 +23,6 @@ export async function getStaticPaths(){
 }
 
 export async function getStaticProps({params}){
-    return {props:{}}
     const res = await fetch(process.env.URL+`/api/blogs/${params.id}`,{
         method:"GET"
     })
