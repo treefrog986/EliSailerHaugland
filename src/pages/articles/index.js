@@ -11,7 +11,7 @@ export default function Articles({ids}){
     <Grid container>
         {ids.map(k=>
   //      <Button>
-            <Grid item xs={4}>
+            <Grid item xs={4} key={k.id}>
                 <Card sx={{width:"90%", marginBottom:2}} >
                     <CardActionArea onClick={()=>route.push(`/articles/${k.id}`)}>
                    <h1>{k.name}</h1>
