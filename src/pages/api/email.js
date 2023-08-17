@@ -5,13 +5,13 @@ export default async function  handler(req, res) {
     var transporter = nodemailer.createTransport({
       service:"Gmail",
       auth:{
-        user:"eli092011@gmail.com",
-        pass:"awnpqjhpgvxwhbqq"
+        user:process.env.EMAIL,
+        pass:process.env.EMAIL_PASSWORD
       }
     })
     var mailOptions = {
       from:email,
-      to:"eli092011@gmail.com",
+      to:process.env.EMAIL,
       subject:"You have an email",
       text: `
       ${name} sent you an email

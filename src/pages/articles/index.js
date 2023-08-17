@@ -1,12 +1,24 @@
 import { Button } from "@mui/material";
 import { useRouter } from "next/router";
-import articles  from "./articles";
 
-export default function Articles({res}){
+
+export default function Articles({ids}){
     const route = useRouter()
     return (<>
-    {Object.keys(articles).map(k=>
-    <Button key = {k} onClick={()=> route.push(`/articles/${k}`)}>{articles[k].title}</Button>)}
-
+    {ids.map(k=><Button key = {k.id} onClick={()=> route.push(`/articles/${k.id}`)}>{k.name}</Button>)}
+    
     </>)
+}
+
+export async function getStaticProps(){
+    const res = await fetch(process.env.URL+"/api/blogs",{
+        method:"GET"
+    })
+    const data = await res.json()
+    console.log(data.rows)
+    return{
+        props: {
+            ids: data.rows
+        }
+    }
 }
