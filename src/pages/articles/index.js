@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 export default function Articles({ids}){
     const route = useRouter()
     return (<>
-    {ids.map(k=><Button key = {k.id} onClick={()=> route.push(`/articles/${k.id}`)}>{k.name}</Button>)}
+    {ids?.map(k=><Button key = {k.id} onClick={()=> route.push(`/articles/${k.id}`)}>{k.name}</Button>)}
     
     </>)
 }
