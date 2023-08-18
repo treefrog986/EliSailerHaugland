@@ -15,10 +15,10 @@ export default function Layout({children}){
                     <ListItemButton onClick={()=>router.push("/")}>Home</ListItemButton>
                 </ListItem>
                 <ListItem>
-                    <ListItemButton onClick={()=>router.push("email")}>Email</ListItemButton>
+                    <ListItemButton onClick={()=>router.push("/email")}>Email</ListItemButton>
                 </ListItem>
                 <ListItem>
-                    <ListItemButton onClick={()=>router.push("articles")}>Articles</ListItemButton>
+                    <ListItemButton onClick={()=>router.push("/articles")}>Articles</ListItemButton>
                 </ListItem>
             </List>
         </Drawer>
