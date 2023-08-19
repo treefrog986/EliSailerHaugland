@@ -1,15 +1,18 @@
 import { useRouter } from "next/router"
-import { Button } from "@mui/material"
+import { Box, Button , Stack} from "@mui/material"
 import Styles from "../../styles/Styles.module.css"
 import { useEffect } from "react"
 export default function Article({res}){
     const router = useRouter()
-    return(<div style={{marginLeft:"20%"}}>
+    return(<>
     <button className={Styles.button} onClick={()=>router.push("/articles")}>Back</button>
-    <h1>{res.name}</h1>
-    <p style={{marginLeft:20, width:"65%"}} dangerouslySetInnerHTML={{__html:res.text}}/>
-
-    </div>)
+    <h1 style={{paddingLeft:"15%"}}>{res.name}</h1>
+    <p style={{
+        paddingLeft:"15%", 
+        width:"65%"}} 
+        dangerouslySetInnerHTML={{__html:res.text}}/>
+    </>
+ )
 }
 
 export async function getStaticPaths(){

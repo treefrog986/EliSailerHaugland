@@ -1,4 +1,5 @@
 import { Button, ButtonBase, Grid, Item , Card, CardActionArea} from "@mui/material";
+import { blue } from "@mui/material/colors";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
@@ -7,7 +8,7 @@ export default function Articles({ids}){
     const route = useRouter()
 
     return (<>
-    <p>Blogd</p>
+    <p style={{fontSize:"2em", color:"blue"}}><u>Blogs</u></p>
     <Grid container>
         {ids.map(k=>
   //      <Button>
@@ -23,12 +24,6 @@ export default function Articles({ids}){
             </Grid>
     </>
     )
-    return (<>
-    {ids?.map(k=>
-    
-    <Button key = {k.id} onClick={()=> route.push(`/articles/${k.id}`)}>{k.name}</Button>)}
-    
-    </>)
 }
 
 export async function getStaticProps(){
@@ -36,7 +31,6 @@ export async function getStaticProps(){
         method:"GET"
     })
     const data = await res.json()
-    console.log(data.rows)
     return{
         props: {
             ids: data.rows
