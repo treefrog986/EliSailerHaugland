@@ -40,9 +40,9 @@ export default async function  handler(req, res) {
 await new Promise((res, rej)=>{
   transporter.sendMail(mailOptions, (error, info)=>{
       if(error){
-       reject(error)
+       rej(error)
       } else{
-        resolve(info)
+        res(info)
       }
     })
 })
