@@ -25,7 +25,11 @@ export default async function  handler(req, res) {
       `
     }
 
-    transporter.sendMail(mailOptions)
+    transporter.sendMail(mailOptions, (error, info)=>{
+      if(error){
+        return console.log(error)
+      }
+    })
     return res.status(200).json({status:"Success"})
   }
   catch(error){
