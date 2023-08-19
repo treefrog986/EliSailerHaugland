@@ -31,7 +31,7 @@ export default function Email(){
     <p>Email</p>
     <p>Please note the following when sending an email</p>
     <ol>
-        {rules.map(rule=><li>{rule}</li>)}
+        {rules.map((rule, index)=><li key={index}>{rule}</li>)}
     </ol>
     <o>Name</o>
     <TextField
